@@ -1,3 +1,3 @@
-export const ConferenceProceedings = () => {
+export default function ConferenceProceedings() {
   return <div>ConferenceProceedings</div>;
-};
+}
