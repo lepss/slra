@@ -21,6 +21,7 @@ const config = {
       orange: "#D8771E",
       beige: "##E5DBBE",
       "light-beige": "#F6F2E6",
+      black: "#000000",
     },
     extend: {
       colors: {

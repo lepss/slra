@@ -35,11 +35,11 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${inter.className} min-w-[300px] bg-light-beige`}
+        className={`${inter.className} min-w-[300px]`}
         suppressHydrationWarning
       >
         <Header />
-        {children}
+        <main className="flex-grow">{children}</main>
         <Footer />
       </body>
     </html>

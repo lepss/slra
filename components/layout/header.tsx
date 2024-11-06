@@ -1,34 +1,46 @@
+"use client";
+
 import Image from "next/image";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
+
+const links = [
+  { href: "/program", label: "Program" },
+  { href: "/venue", label: "Venue" },
+  { href: "/practical", label: "Practical Information" },
+  { href: "/register", label: "Register" },
+  { href: "/conference-proceedings", label: "Conference Proceedings" },
+];
 
 export const Header = () => {
+  const pathname = usePathname();
   return (
-    <header className="bg-white flex justify-between items-center px-8 mb-20">
-      <div className="hidden items-center space-x-4 md:flex">
+    <header className="flex items-center justify-between p-4 md:px-8 bg-white shadow-md">
+      <Link href="/">
         <Image
-          src="/img/caravane.png"
-          alt="Icon Left"
-          width={250}
-          height={250}
-        />
-      </div>
-      <div className="flex items-center m-auto space-x-4">
-        <Image
-          src="/img/logo-titre.png"
-          alt="Image titre"
-          width={400}
-          height={400}
-          layout="intrinsic"
+          src={"/img/Logo-titre.png"}
+          alt={"logo"}
+          width={200}
+          height={200}
           objectFit="contain"
         />
-      </div>
-      <div className="hidden items-center space-x-4 md:flex">
-        <Image
-          src="/img/bateau.png"
-          alt="Icon Right"
-          width={250}
-          height={250}
-        />
-      </div>
+      </Link>
+      <nav className="hidden text-md md:flex md:flex-grow md:justify-around uppercase">
+        {links.map(({ href, label }) => (
+          <Link
+            key={`${href}${label}`}
+            href={href}
+            className={`flex items-center gap-1 ${
+              pathname === href
+                ? " text-orange"
+                : "text-primary-50 hover:text-muted-foreground"
+            }`}
+          >
+            {label}
+          </Link>
+        ))}
+      </nav>
+      <div className="md:hidden text-xl font-bold">Menu</div>
     </header>
   );
 };
