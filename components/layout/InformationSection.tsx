@@ -12,7 +12,7 @@ export const InformationSection = ({ className }: { className?: string }) => {
           Presentation
         </h2>
         <p>
-          The international symposium{" "}
+          The international symposium
           <span className="font-bold">
             “Sur les routes d&apos;Arabie: itinéraires terrestres et maritimes”
           </span>{" "}
