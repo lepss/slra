@@ -19,6 +19,7 @@ const config = {
     },
     colors: {
       orange: "#D8771E",
+      green: "#16372C",
       beige: "##E5DBBE",
       "light-beige": "#F6F2E6",
       black: "#000000",

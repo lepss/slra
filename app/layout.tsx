@@ -1,5 +1,6 @@
 import { Footer } from "@/components/layout/footer";
 import { Header } from "@/components/layout/header";
+import { Toaster } from "@/components/ui/toaster";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
@@ -35,12 +36,14 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${inter.className} min-w-[300px]`}
+        className={`${inter.className} min-w-[300px]  bg-light-beige`}
         suppressHydrationWarning
+        id="home-section"
       >
         <Header />
-        <main className="flex-grow">{children}</main>
+        <main className="flex-grow bg-light-beige">{children}</main>
         <Footer />
+        <Toaster />
       </body>
     </html>
   );

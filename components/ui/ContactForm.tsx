@@ -1,14 +1,19 @@
 "use client";
-
+import { useToast } from "@/hooks/use-toast";
 import { useState } from "react";
 
 const ContactForm = () => {
   const [formData, setFormData] = useState({
-    name: "",
-    firstName: "",
+    lastname: "",
+    firstname: "",
+    email: "",
     affiliation: "",
-    message: "Please enter your message here.",
+    message: "", // Message field empty by default
   });
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState<string | null>(null);
+
+  const { toast } = useToast();
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
@@ -20,34 +25,75 @@ const ContactForm = () => {
     });
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    console.log(formData);
-    // Add form submission logic here (e.g., API call or state management)
+    setLoading(true);
+    setError(null);
+
+    try {
+      // Send data to the `/api/send-email` endpoint
+      const response = await fetch("/api/send-email", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      });
+
+      if (!response.ok) {
+        throw new Error("Error during registration");
+      }
+
+      // Display a success toast
+      toast({
+        title: "Registration successful!",
+        description: "Your submission has been sent successfully.",
+      });
+
+      // Clear the form after successful submission
+      setFormData({
+        lastname: "",
+        firstname: "",
+        email: "",
+        affiliation: "",
+        message: "", // Message field cleared after submission
+      });
+    } catch (err) {
+      setError((err as Error).message);
+
+      // Display an error toast if submission fails
+      toast({
+        title: "Error",
+        description: "An error occurred while sending your submission.",
+        variant: "destructive", // Display the toast in red (error)
+      });
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
     <form
       onSubmit={handleSubmit}
-      className="mx-auto p-6 bg-white shadow-lg rounded-lg"
+      className="container mx-auto bg-white rounded-lg"
     >
-      <h2 className="text-2xl font-bold mb-6 text-center uppercase">
+      <h2 className="text-4xl font-bold mb-6 text-center uppercase">
         Join the Conference
       </h2>
 
-      {/* Name Field */}
+      {/* Last Name Field */}
       <div className="mb-4">
         <label
-          htmlFor="name"
+          htmlFor="lastname"
           className="block text-gray-700 font-semibold mb-2"
         >
-          Name
+          Last Name
         </label>
         <input
           type="text"
-          id="name"
-          name="name"
-          value={formData.name}
+          id="lastname"
+          name="lastname"
+          value={formData.lastname}
           onChange={handleChange}
           className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-orange"
           required
@@ -57,16 +103,35 @@ const ContactForm = () => {
       {/* First Name Field */}
       <div className="mb-4">
         <label
-          htmlFor="firstName"
+          htmlFor="firstname"
           className="block text-gray-700 font-semibold mb-2"
         >
           First Name
         </label>
         <input
           type="text"
-          id="firstName"
-          name="firstName"
-          value={formData.firstName}
+          id="firstname"
+          name="firstname"
+          value={formData.firstname}
+          onChange={handleChange}
+          className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-orange"
+          required
+        />
+      </div>
+
+      {/* Email Field */}
+      <div className="mb-4">
+        <label
+          htmlFor="email"
+          className="block text-gray-700 font-semibold mb-2"
+        >
+          Email
+        </label>
+        <input
+          type="email"
+          id="email"
+          name="email"
+          value={formData.email}
           onChange={handleChange}
           className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-orange"
           required
@@ -92,7 +157,7 @@ const ContactForm = () => {
         />
       </div>
 
-      {/* Message Field */}
+      {/* Message Field (Optional) */}
       <div className="mb-4">
         <label
           htmlFor="message"
@@ -105,6 +170,7 @@ const ContactForm = () => {
           name="message"
           value={formData.message}
           onChange={handleChange}
+          placeholder="You may enter a message here if needed."
           className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-orange"
           rows={4}
         />
@@ -114,8 +180,9 @@ const ContactForm = () => {
       <button
         type="submit"
         className="w-full px-4 py-2 bg-orange text-secondary font-semibold rounded-md hover:opacity-90 focus:outline-none focus:ring-2 focus:ring-orange"
+        disabled={loading}
       >
-        Register
+        {loading ? "Sending..." : "Register"}
       </button>
     </form>
   );
