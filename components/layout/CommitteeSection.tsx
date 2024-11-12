@@ -1,44 +1,79 @@
 import clsx from "clsx";
+import Image from "next/image";
 
 export const CommitteeSection = ({ className }: { className?: string }) => {
   return (
     <section
-      className={clsx("container flex flex-row gap-16 py-10", className)}
-      id="presentation-section"
+      className={clsx("bg-green text-secondary py-10", className)}
+      id="committee-section"
     >
-      <div className="flex flex-col justify-center gap-8 lg:w-1/2">
-        <h2 className="uppercase text-3xl font-bold md:text-5xl">Committee</h2>
-        <h3>Scientific</h3>
-        <ul>
-          <li>Dr. Nasser Al-Jahwari - Sultan Qaboos University </li>
-          <li>Dr. Abdulrahman Alsuhaibani - The Royal Commission for AlUla </li>
-          <li>Mme. Marianne Cotty - Musée du Louvre </li>
-          <li>Dr. Jessica Giraud - Archaïos </li>
-          <li>Dr. Marta Luciani - Universität Wien </li>
-          <li>
-            Dr. Laïla Nehmé - Centre National de la Recherche Scientifique{" "}
-          </li>
-          <li>Dr. Seth Priestman - Durham University </li>
-          <li>
-            Dr. Jérôme Rohmer - Centre National de la Recherche Scientifique{" "}
-          </li>
-          <li>Dr. Irene Rossi - Consiglio Nazionale delle Ricerche </li>
-          <li>
-            Dr. Jérémie Schiettecatte - Centre National de la Recherche
-            Scientifique{" "}
-          </li>
-        </ul>
-        <h3>Organising</h3>
-        <ul>
-          <li>
-            M. Josselin Pinot - Université Paris I Panthéon Sorbonne - CNRS -
-            Archaïos
-          </li>
-          <li>
-            Dr. Sterenn Le Maguer-Gillon - Université de Lausanne - Archaïos -
-            CEFREPA
-          </li>
-        </ul>
+      <div className="container py-10 flex flex-row gap-16">
+        <div className="hidden lg:flex justify-center lg:w-1/2">
+          <Image
+            className="w-full h-auto object-contain"
+            src="/img/Caravane.png"
+            alt="Background Image"
+            width={600}
+            height={600}
+          />
+        </div>
+        <div className="flex flex-col justify-center gap-8 lg:w-1/2">
+          <h2 className="uppercase text-3xl font-bold tracking-wider md:text-5xl">
+            Committee
+          </h2>
+          <h3 className="text-xl font-bold underline underline-offset-2">
+            Scientific
+          </h3>
+          <ul>
+            <li>
+              <b>Dr. Nasser Al-Jahwari</b> - Sultan Qaboos University{" "}
+            </li>
+            <li>
+              <b>Dr. Abdulrahman Alsuhaibani</b> - The Royal Commission for
+              AlUla{" "}
+            </li>
+            <li>
+              <b>Mme. Marianne Cotty</b> - Musée du Louvre{" "}
+            </li>
+            <li>
+              <b>Dr. Jessica Giraud</b> - Archaïos{" "}
+            </li>
+            <li>
+              <b>Dr. Marta Luciani</b> - Universität Wien{" "}
+            </li>
+            <li>
+              <b>Dr. Laïla Nehmé</b> - Centre National de la Recherche
+              Scientifique{" "}
+            </li>
+            <li>
+              <b>Dr. Seth Priestman</b> - Durham University{" "}
+            </li>
+            <li>
+              <b>Dr. Jérôme Rohmer</b> - Centre National de la Recherche
+              Scientifique{" "}
+            </li>
+            <li>
+              <b>Dr. Irene Rossi</b> - Consiglio Nazionale delle Ricerche{" "}
+            </li>
+            <li>
+              <b>Dr. Jérémie Schiettecatte</b> - Centre National de la Recherche
+              Scientifique{" "}
+            </li>
+          </ul>
+          <h3 className="text-xl font-bold underline underline-offset-2">
+            Organising
+          </h3>
+          <ul>
+            <li>
+              <b>M. Josselin Pinot</b> - Université Paris I Panthéon Sorbonne -
+              CNRS - Archaïos
+            </li>
+            <li>
+              <b>Dr. Sterenn Le Maguer-Gillon</b> - Université de Lausanne -
+              Archaïos - CEFREPA
+            </li>
+          </ul>
+        </div>
       </div>
     </section>
   );

@@ -18,6 +18,7 @@
     "@sendgrid/mail": "^8.1.4",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.1",
+    "json2csv": "^6.0.0-alpha.2",
     "lucide-react": "^0.416.0",
     "next": "^14.2.14",
     "nodemailer": "^6.9.16",
@@ -28,6 +29,7 @@
     "tailwindcss-animate": "^1.0.7"
   },
   "devDependencies": {
+    "@types/json2csv": "^5.0.7",
     "@types/node": "^20",
     "@types/nodemailer": "^6.4.15",
     "@types/react": "^18",

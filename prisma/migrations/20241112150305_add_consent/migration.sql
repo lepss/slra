@@ -1,0 +1,2 @@
+-- AlterTable
+ALTER TABLE "Registration" ADD COLUMN     "consentGivenAt" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP;

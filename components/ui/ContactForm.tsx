@@ -8,7 +8,7 @@ const ContactForm = () => {
     firstname: "",
     email: "",
     affiliation: "",
-    message: "", // Message field empty by default
+    message: "",
   });
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
@@ -31,8 +31,8 @@ const ContactForm = () => {
     setError(null);
 
     try {
-      // Send data to the `/api/send-email` endpoint
-      const response = await fetch("/api/send-email", {
+      // Send data to the `/api/send` endpoint
+      const response = await fetch("/api/send", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -44,7 +44,7 @@ const ContactForm = () => {
         throw new Error("Error during registration");
       }
 
-      // Display a success toast
+      // Display a success toast for registration submission
       toast({
         title: "Registration successful!",
         description: "Your submission has been sent successfully.",
@@ -58,14 +58,29 @@ const ContactForm = () => {
         affiliation: "",
         message: "", // Message field cleared after submission
       });
+
+      // // Additional API call to test weekly report sending
+      // const reportResponse = await fetch("/api/send-weekly-report", {
+      //   method: "POST",
+      // });
+
+      // if (!reportResponse.ok) {
+      //   throw new Error("Failed to send weekly report");
+      // }
+
+      // // Display a success toast for weekly report
+      // toast({
+      //   title: "Weekly Report Sent!",
+      //   description: "The weekly report was sent successfully as a test.",
+      // });
     } catch (err) {
       setError((err as Error).message);
 
-      // Display an error toast if submission fails
+      // Display an error toast if submission or report fails
       toast({
         title: "Error",
-        description: "An error occurred while sending your submission.",
-        variant: "destructive", // Display the toast in red (error)
+        description: `An error occurred: ${(err as Error).message}`,
+        variant: "destructive",
       });
     } finally {
       setLoading(false);
@@ -174,6 +189,15 @@ const ContactForm = () => {
           className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-orange"
           rows={4}
         />
+      </div>
+
+      {/* Consent Checkbox */}
+      <div className="mb-4 flex flex-row gap-4">
+        <input type="checkbox" id="consent" name="consent" required />
+        <label htmlFor="consent">
+          I consent to the collection and processing of my data for the purpose
+          of the conference.
+        </label>
       </div>
 
       {/* Submit Button */}

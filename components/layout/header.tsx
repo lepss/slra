@@ -9,6 +9,8 @@ import { useEffect, useState } from "react";
 const links = [
   { href: "/", label: "Home" },
   { href: "#presentation-section", label: "Presentation" },
+  { href: "#committee-section", label: "Committee" },
+  { href: "#partners-section", label: "Partners" },
   { href: "#venue-section", label: "Venue" },
 ];
 
@@ -45,16 +47,13 @@ export const Header = () => {
       </Link>
 
       {/* Navigation principale pour les écrans moyens et grands */}
-      <nav className="hidden text-md md:flex md:flex-grow md:justify-around uppercase">
+      <nav className="hidden text-md lg:flex md:flex-grow md:justify-around uppercase">
         {links.map(({ href, label }) => (
           <Link
             key={`${href}${label}`}
             href={href}
             passHref
-            className={`flex items-center gap-1 ${
-              pathname === href
-                ? "text-orange"
-                : "text-primary-50 hover:text-muted-foreground"
+            className={`flex items-center gap-1text-primary-50 hover:text-muted-foreground 
             }`}
           >
             {label}
@@ -64,13 +63,13 @@ export const Header = () => {
 
       {/* Bouton Register pour les écrans moyens et grands */}
       <Link href="#register-section" passHref>
-        <div className="hidden md:flex items-center justify-center rounded-md bg-orange px-6 py-4 text-center text-xl font-bold text-secondary hover:opacity-90">
+        <div className="hidden lg:flex items-center justify-center rounded-md bg-orange px-6 py-4 text-center text-xl font-bold text-secondary hover:opacity-90">
           Register
         </div>
       </Link>
 
       {/* Bouton Menu pour les écrans mobiles */}
-      <div className="md:hidden flex items-center">
+      <div className="lg:hidden flex items-center">
         <button
           onClick={toggleMenu}
           className="text-xl font-bold focus:outline-none"
