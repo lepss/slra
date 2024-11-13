@@ -3,7 +3,7 @@
 import { generateAndSendWeeklyReport } from "@/lib/weeklyReport"; // Assurez-vous que le chemin vers cette fonction est correct
 import { NextResponse } from "next/server";
 
-export async function POST() {
+export async function GET() {
   try {
     await generateAndSendWeeklyReport();
     return NextResponse.json(
