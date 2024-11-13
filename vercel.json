@@ -2,7 +2,7 @@
   "crons": [
     {
       "path": "/api/send-weekly-report",
-      "schedule": "0 0 * * FRI"
+      "schedule": "0 0 * * MON"
     }
   ]
 }

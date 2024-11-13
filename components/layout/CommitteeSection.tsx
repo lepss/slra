@@ -16,13 +16,6 @@ export const CommitteeSection = ({ className }: { className?: string }) => {
             width={600}
             height={600}
           />
-          {/* <Image
-            className="w-full h-auto object-contain"
-            src="/img/Caravane.png"
-            alt="Background Image"
-            width={600}
-            height={600}
-          /> */}
         </div>
         <div className="flex flex-col justify-center gap-8 lg:w-1/2">
           <h2 className="uppercase text-3xl font-bold tracking-wider md:text-5xl">
