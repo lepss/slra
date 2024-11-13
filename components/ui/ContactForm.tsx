@@ -31,7 +31,6 @@ const ContactForm = () => {
     setError(null);
 
     try {
-      // Send data to the `/api/send` endpoint
       const response = await fetch("/api/send", {
         method: "POST",
         headers: {
@@ -44,39 +43,21 @@ const ContactForm = () => {
         throw new Error("Error during registration");
       }
 
-      // Display a success toast for registration submission
       toast({
         title: "Registration successful!",
         description: "Your submission has been sent successfully.",
       });
 
-      // Clear the form after successful submission
       setFormData({
         lastname: "",
         firstname: "",
         email: "",
         affiliation: "",
-        message: "", // Message field cleared after submission
+        message: "",
       });
-
-      // // Additional API call to test weekly report sending
-      // const reportResponse = await fetch("/api/send-weekly-report", {
-      //   method: "POST",
-      // });
-
-      // if (!reportResponse.ok) {
-      //   throw new Error("Failed to send weekly report");
-      // }
-
-      // // Display a success toast for weekly report
-      // toast({
-      //   title: "Weekly Report Sent!",
-      //   description: "The weekly report was sent successfully as a test.",
-      // });
     } catch (err) {
       setError((err as Error).message);
 
-      // Display an error toast if submission or report fails
       toast({
         title: "Error",
         description: `An error occurred: ${(err as Error).message}`,
@@ -92,84 +73,84 @@ const ContactForm = () => {
       onSubmit={handleSubmit}
       className="container mx-auto bg-white rounded-lg"
     >
-      <h2 className="text-4xl font-bold mb-6 text-center uppercase">
+      <h2 className="text-4xl font-bold mb-10 text-center uppercase">
         Join the Conference
       </h2>
 
-      {/* Last Name Field */}
-      <div className="mb-4">
-        <label
-          htmlFor="lastname"
-          className="block text-gray-700 font-semibold mb-2"
-        >
-          Last Name
-        </label>
-        <input
-          type="text"
-          id="lastname"
-          name="lastname"
-          value={formData.lastname}
-          onChange={handleChange}
-          className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-orange"
-          required
-        />
+      {/* Name Fields (First and Last Name) */}
+      <div className="grid gap-4 md:grid-cols-2 mb-4">
+        <div>
+          <label
+            htmlFor="lastname"
+            className="block text-gray-700 font-semibold mb-2"
+          >
+            Last Name
+          </label>
+          <input
+            type="text"
+            id="lastname"
+            name="lastname"
+            value={formData.lastname}
+            onChange={handleChange}
+            className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-orange"
+            required
+          />
+        </div>
+        <div>
+          <label
+            htmlFor="firstname"
+            className="block text-gray-700 font-semibold mb-2"
+          >
+            First Name
+          </label>
+          <input
+            type="text"
+            id="firstname"
+            name="firstname"
+            value={formData.firstname}
+            onChange={handleChange}
+            className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-orange"
+            required
+          />
+        </div>
       </div>
 
-      {/* First Name Field */}
-      <div className="mb-4">
-        <label
-          htmlFor="firstname"
-          className="block text-gray-700 font-semibold mb-2"
-        >
-          First Name
-        </label>
-        <input
-          type="text"
-          id="firstname"
-          name="firstname"
-          value={formData.firstname}
-          onChange={handleChange}
-          className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-orange"
-          required
-        />
-      </div>
-
-      {/* Email Field */}
-      <div className="mb-4">
-        <label
-          htmlFor="email"
-          className="block text-gray-700 font-semibold mb-2"
-        >
-          Email
-        </label>
-        <input
-          type="email"
-          id="email"
-          name="email"
-          value={formData.email}
-          onChange={handleChange}
-          className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-orange"
-          required
-        />
-      </div>
-
-      {/* Affiliation Field */}
-      <div className="mb-4">
-        <label
-          htmlFor="affiliation"
-          className="block text-gray-700 font-semibold mb-2"
-        >
-          Affiliation
-        </label>
-        <input
-          type="text"
-          id="affiliation"
-          name="affiliation"
-          value={formData.affiliation}
-          onChange={handleChange}
-          className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-orange"
-          required
-        />
+      {/* Contact Fields (Email and Affiliation) */}
+      <div className="grid gap-4 md:grid-cols-2 mb-4">
+        <div>
+          <label
+            htmlFor="email"
+            className="block text-gray-700 font-semibold mb-2"
+          >
+            Email
+          </label>
+          <input
+            type="email"
+            id="email"
+            name="email"
+            value={formData.email}
+            onChange={handleChange}
+            className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-orange"
+            required
+          />
+        </div>
+        <div>
+          <label
+            htmlFor="affiliation"
+            className="block text-gray-700 font-semibold mb-2"
+          >
+            Affiliation
+          </label>
+          <input
+            type="text"
+            id="affiliation"
+            name="affiliation"
+            value={formData.affiliation}
+            onChange={handleChange}
+            className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-orange"
+            required
+          />
+        </div>
       </div>
 
       {/* Message Field (Optional) */}

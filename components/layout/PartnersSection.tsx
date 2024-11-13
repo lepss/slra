@@ -60,7 +60,7 @@ export const PartnersSection = () => {
         <h2 className="uppercase text-3xl font-bold tracking-wider md:text-5xl">
           PARTNERS
         </h2>
-        <p className="text-lg">
+        <p className="text-lg italic">
           The organizers thank all the partner institutions
         </p>
         <div className="flex gap-20 mt-10 flex-wrap justify-center">
@@ -68,18 +68,18 @@ export const PartnersSection = () => {
             <div
               key={index}
               className="relative"
-              style={{ width: logo.width, height: logo.height }}
+              style={{ width: logo.width * 1.5, height: logo.height * 1.5 }}
             >
               <Image
                 src={logo.src}
                 alt={logo.alt}
-                width={logo.width}
-                height={logo.height}
+                width={logo.width * 1.5}
+                height={logo.height * 1.5}
               />
             </div>
           ))}
         </div>
-        <p className="text-lg">
+        <p className="text-lg italic">
           with the support of the CVEC “Student Initiatives” commission of
           Sorbonne University
         </p>
@@ -88,13 +88,13 @@ export const PartnersSection = () => {
             <div
               key={index}
               className="relative"
-              style={{ width: logo.width, height: logo.height }}
+              style={{ width: logo.width * 1.5, height: logo.height * 1.5 }}
             >
               <Image
                 src={logo.src}
                 alt={logo.alt}
-                width={logo.width}
-                height={logo.height}
+                width={logo.width * 1.5}
+                height={logo.height * 1.5}
               />
             </div>
           ))}
