@@ -24,7 +24,7 @@ export const PartnersSection = () => {
   const logos02 = [
     {
       alt: "Sorbonne Université Lettres",
-      src: "/img/logos-partenaires/sorbonne-logo-noir.png",
+      src: "/img/logos-partenaires/Sorbonne-logo-noir.png",
       width: 200,
       height: 200,
     },
