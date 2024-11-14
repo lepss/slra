@@ -2,6 +2,7 @@ import {
   EmailTemplateInscription,
   EmailTemplateNotification,
 } from "@/components/email-template";
+import prisma from "@/lib/prisma";
 import { Resend } from "resend";
 
 const resend = new Resend(process.env.RESEND_API_KEY);
@@ -12,11 +13,25 @@ interface RequestBody {
   email: string;
   affiliation: string;
   message: string;
+  consent: boolean;
+  selectedDates: string[];
 }
 
 export async function POST(request: Request) {
-  const { lastname, firstname, email, affiliation, message }: RequestBody =
-    await request.json();
+  const {
+    lastname,
+    firstname,
+    email,
+    affiliation,
+    message,
+    consent,
+    selectedDates,
+  }: RequestBody = await request.json();
+
+  // Enregistrer dans la base de données
+  const registration = await prisma.registration.create({
+    data: { lastname, firstname, email, affiliation, message, selectedDates },
+  });
 
   try {
     // Envoi de l'email à la personne qui s'inscrit
@@ -31,6 +46,7 @@ export async function POST(request: Request) {
           email: email,
           affiliation: affiliation,
           message: message,
+          selectedDates: selectedDates,
         }),
       });
 
@@ -50,6 +66,7 @@ export async function POST(request: Request) {
           email: email,
           affiliation: affiliation,
           message: message,
+          selectedDates: selectedDates,
         }),
       });
 

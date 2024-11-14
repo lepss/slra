@@ -12,7 +12,7 @@ export const DownloadButton = () => {
 
   return (
     <a
-      href="/doc/Programme_Routes_Arabie_2024_A4_v4.pdf"
+      href="/doc/Programme_Routes_Arabie_2024.pdf"
       download
       onClick={handleDownload}
     >

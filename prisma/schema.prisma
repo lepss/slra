@@ -20,6 +20,7 @@ model Registration {
   email       String
   affiliation String
   message     String
+  selectedDates  String[]
   createdAt   DateTime @default(now())
   consentGivenAt DateTime @default(now())
 }

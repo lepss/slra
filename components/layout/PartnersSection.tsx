@@ -68,13 +68,13 @@ export const PartnersSection = () => {
             <div
               key={index}
               className="relative"
-              style={{ width: logo.width * 1.5, height: logo.height * 1.5 }}
+              style={{ width: logo.width * 1.4, height: logo.height * 1.4 }}
             >
               <Image
                 src={logo.src}
                 alt={logo.alt}
-                width={logo.width * 1.5}
-                height={logo.height * 1.5}
+                width={logo.width * 1.4}
+                height={logo.height * 1.4}
               />
             </div>
           ))}
@@ -88,13 +88,13 @@ export const PartnersSection = () => {
             <div
               key={index}
               className="relative"
-              style={{ width: logo.width * 1.5, height: logo.height * 1.5 }}
+              style={{ width: logo.width * 1.4, height: logo.height * 1.4 }}
             >
               <Image
                 src={logo.src}
                 alt={logo.alt}
-                width={logo.width * 1.5}
-                height={logo.height * 1.5}
+                width={logo.width * 1.4}
+                height={logo.height * 1.4}
               />
             </div>
           ))}
