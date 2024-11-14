@@ -5,53 +5,53 @@ export const PartnersSection = () => {
     {
       alt: "RdO",
       src: "/img/logos-partenaires/RdO-logo-noir.png",
-      width: 100,
-      height: 100,
+      width: 200,
+      height: 200,
     },
     {
       alt: "IMA",
       src: "/img/logos-partenaires/ima-logo-noir.png",
-      width: 50,
-      height: 50,
+      width: 100,
+      height: 100,
     },
     {
       alt: "Archaios",
       src: "/img/logos-partenaires/Archaios-logo-noir.png",
-      width: 100,
-      height: 100,
+      width: 200,
+      height: 200,
     },
   ];
   const logos02 = [
     {
       alt: "Sorbonne Université Lettres",
       src: "/img/logos-partenaires/sorbonne-logo-noir.png",
-      width: 100,
-      height: 100,
+      width: 200,
+      height: 200,
     },
 
     {
       alt: "CVEC",
       src: "/img/logos-partenaires/CVEC-logo-noir.png",
-      width: 100,
-      height: 100,
+      width: 200,
+      height: 200,
     },
     {
       alt: "CEFREPA",
       src: "/img/logos-partenaires/cefrepa-logo-noir.png",
-      width: 50,
-      height: 50,
-    },
-    {
-      alt: "Orient et Méditerranée",
-      src: "/img/logos-partenaires/Orient-mediterranee-logo-noir.png",
       width: 100,
       height: 100,
     },
     {
+      alt: "Orient et Méditerranée",
+      src: "/img/logos-partenaires/Orient-mediterranee-logo-noir.png",
+      width: 200,
+      height: 200,
+    },
+    {
       alt: "Monde Antiques et Médiévaux",
       src: "/img/logos-partenaires/Mondes-antiques-medievaux-logo-noir.png",
-      width: 80,
-      height: 80,
+      width: 160,
+      height: 160,
     },
   ];
   return (
@@ -68,13 +68,13 @@ export const PartnersSection = () => {
             <div
               key={index}
               className="relative"
-              style={{ width: logo.width * 1.4, height: logo.height * 1.4 }}
+              style={{ width: logo.width, height: logo.height }}
             >
               <Image
                 src={logo.src}
                 alt={logo.alt}
-                width={logo.width * 1.4}
-                height={logo.height * 1.4}
+                width={logo.width}
+                height={logo.height}
               />
             </div>
           ))}
@@ -88,13 +88,13 @@ export const PartnersSection = () => {
             <div
               key={index}
               className="relative"
-              style={{ width: logo.width * 1.4, height: logo.height * 1.4 }}
+              style={{ width: logo.width, height: logo.height }}
             >
               <Image
                 src={logo.src}
                 alt={logo.alt}
-                width={logo.width * 1.4}
-                height={logo.height * 1.4}
+                width={logo.width}
+                height={logo.height}
               />
             </div>
           ))}
