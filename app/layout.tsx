@@ -22,7 +22,7 @@ export const metadata: Metadata = {
         url: "/img/logo-titre.jpg",
         width: 800,
         height: 600,
-        alt: "Sur les Routes d'Arabie image",
+        alt: "Sur les Routes d'Arabie logo",
       },
     ],
   },
