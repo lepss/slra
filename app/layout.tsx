@@ -12,7 +12,7 @@ export const metadata: Metadata = {
   description: "Sur les Routes d'Arabie",
   metadataBase: new URL("https://www.surlesroutesdarabie.com/"),
   icons: {
-    icon: "/favicon.ico",
+    icon: "favicon.ico",
   },
   openGraph: {
     title: `Sur les Routes d'Arabie`,
@@ -22,7 +22,7 @@ export const metadata: Metadata = {
         url: "/img/logo-titre.jpg",
         width: 800,
         height: 600,
-        alt: "Sur les Routes d'Arabie image",
+        alt: "Sur les Routes d'Arabie logo",
       },
     ],
   },
