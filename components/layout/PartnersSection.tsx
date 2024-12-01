@@ -23,15 +23,20 @@ export const PartnersSection = () => {
   ];
   const logos02 = [
     {
+      alt: "CVEC",
+      src: "/img/logos-partenaires/CVEC-logo-noir.png",
+      width: 200,
+      height: 200,
+    },
+    {
       alt: "Sorbonne Université Lettres",
       src: "/img/logos-partenaires/Sorbonne-logo-noir.png",
       width: 200,
       height: 200,
     },
-
     {
-      alt: "CVEC",
-      src: "/img/logos-partenaires/CVEC-logo-noir.png",
+      alt: "Afalula - French agency for Alula development",
+      src: "/img/logos-partenaires/AFALULA_logo-BW.png",
       width: 200,
       height: 200,
     },
@@ -44,6 +49,12 @@ export const PartnersSection = () => {
     {
       alt: "Orient et Méditerranée",
       src: "/img/logos-partenaires/Orient-mediterranee-logo-noir.png",
+      width: 200,
+      height: 200,
+    },
+    {
+      alt: "ARSCAN - Archéologies et Sciences de l'Antiquité",
+      src: "/img/logos-partenaires/logo_arscan-BW.png",
       width: 200,
       height: 200,
     },
